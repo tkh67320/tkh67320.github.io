@@ -1,7 +1,26 @@
 body {
-	background-color: #D3D3D3;
+	background-color: #fff0e6;
 	font-family: Courier New;
 	font-size: 90%;
 	text-align: center;
 
 }
+
+a:link, a:visited {
+	background-color: #ff8533;
+    	color: black;
+    	padding: 10px 20px;
+   	text-align: center;
+    	text-decoration: none;
+    	display: inline-block;
+}
+
+a:hover {
+	background-color: #4d1f00;
+    	color: white;
+    	padding: 10px 20px;
+   	text-align: center;
+    	text-decoration: none;
+    	display: inline-block;
+}
+
