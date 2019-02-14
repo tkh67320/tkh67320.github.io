@@ -738,8 +738,11 @@ function checklife(me){
         myX = 0;
         myY = 1289;
         me.dying = true; //player dying indicator
+	arrows = [];
+	    
     }
     if(me.myLife === 0 && myY == 1289){
+	arrows = [];
         if(myX > 386){
             gameOver(); //if death animation is over triggers game over
         }
