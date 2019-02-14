@@ -818,7 +818,7 @@ function bossShoot(b){
     //boss pattern shooting is left, right, middle
     //if left cannon is ready to fire makes arrow 
     if(b.left){
-        value = fire(b.CHAR_START_X + 10, b.CHAR_START_Y + 80);
+        value = fire(b.CHAR_START_X + 20, b.CHAR_START_Y + 80);
         arrows.push(value);
         arrows[aindex].down = true;
         arrows[aindex].enem = true;
@@ -833,7 +833,7 @@ function bossShoot(b){
     
     //if right cannon is ready to fire
     else if(b.right){
-        value = fire(b.CHAR_START_X + 70, b.CHAR_START_Y + 80);
+        value = fire(b.CHAR_START_X + 80, b.CHAR_START_Y + 80);
         arrows.push(value);
         arrows[aindex].down = true;
         arrows[aindex].enem = true;
@@ -848,7 +848,7 @@ function bossShoot(b){
     
     //if middle cannon is ready to fire
     else if(b.middle){
-        value = fire(b.CHAR_START_X + 30, b.CHAR_START_Y + 80);
+        value = fire(b.CHAR_START_X + 50, b.CHAR_START_Y + 80);
         arrows.push(value);
         arrows[aindex].down = true;
         arrows[aindex].enem = true;
