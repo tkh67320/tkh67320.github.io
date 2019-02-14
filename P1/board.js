@@ -379,7 +379,7 @@ function AI(s){
 //function that deals with key press event 
 function checkKey(e){
     //moves only if player is alive
-    if(!me.dying){
+    if(!me.dying && me.myLife > 0){
         e = e || window.event;
 
         //w key (up)
@@ -450,7 +450,9 @@ function clearD(){
 
 //sets user back to starting position animation
 function st(e){
-    myX = 0;
+    if(me.myLife > 0){
+    	myX = 0;
+    }
 }
 
 //creates arrow object at x,y
