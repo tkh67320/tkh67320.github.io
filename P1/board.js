@@ -1130,7 +1130,6 @@ function update(){
         if(finalboss.life == 0){
             enemies--;
             score += 1000;
-            level++;
             counter = 0;
         }
         else {
