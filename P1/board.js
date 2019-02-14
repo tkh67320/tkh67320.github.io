@@ -40,7 +40,7 @@ let upA_SRC = "images/arrowup.png";
 let skel_SRC = "images/skeleton.png";
 let arrSp_SRC = "images/arrSpeed.png";
 let final_SRC = "images/finalBoss.png";
-let arena_SRC = "images/arena.png";
+let arena_SRC = "images/a2.png";
 let heart_SRC = "images/heart.png";
 
 //used for direction and shooting direction
