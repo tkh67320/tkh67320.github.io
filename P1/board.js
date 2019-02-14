@@ -261,6 +261,7 @@ var bl = 15;
 var arrows = [];
 var skeletons = [];
 var pUp = [];
+var BOSS = [];
 
 
 //function is used for image preloading
@@ -926,18 +927,6 @@ function update(){
     ctx.drawImage(arena, 0, 0, 700, 700, 0, 0, 700, 700);
 
     
-    if(level == 3 && warning == true){
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, stage.height - 50, stage.width, 50);
-        ctx.fillStyle = "#000";
-        ctx.font = START_FONT;
-        ctx.fillText("BOSS INCOMING...", 200, stage.height - 15);
-        if(counter == 40){
-            warning = false;
-        }
-        
-    }
-    
     //Start screen display
     if(level == 0){
         ctx.fillStyle = "#dfbf9f";
@@ -953,7 +942,7 @@ function update(){
         ctx.font = RETURN_FONT;
         ctx.fillText("W-up A-left S-down D-right", 240, 600);
         ctx.fillText("SPACE(HOLD)-shoot", 265, 650);
-	ctx.fillText("*Please be full screen to see the entire game", 180, 680);
+        ctx.fillText("*Please be full screen to see the entire game", 180, 680);
     }
     
     //creates enemies based on level and level delay
@@ -979,13 +968,15 @@ function update(){
         }
         //spawns boss 
         if(level == 3){
-            finalBoss = final();
+            BOSS.push(final());
+            BOSS[0].life = 15;
             enemies++;
             d = true;
             p = 1;
         }
         //spawns three skeletons
         if(level >= 4){
+            BOSS.pop();
             value = spawn(0, 200);
             skeletons.push(value);
             enemies++;
@@ -1121,37 +1112,38 @@ function update(){
     }
     
     //draws boss if on appropriate level
-    if(level == 3){
+    if(level == 3 && BOSS.length == 1){
         ctx.fillStyle = "red";
-        ctx.fillRect(finalboss.posx - 20, 0, bl * 10, 10);
+        ctx.fillRect(BOSS[0].posx - 20, 0, bl * 10, 10);
         ctx.fillStyle = "#339933";
-        ctx.fillRect(finalboss.posx - 20, 0, finalboss.life * 10, 10);
-        if(finalboss.life == 0){
+        ctx.fillRect(BOSS[0].posx - 20, 0, BOSS[0].life * 10, 10);
+        if(BOSS[0].life == 0){
             enemies--;
             score += 1000;
             counter = 0;
         }
         else {
-            bossAI(finalboss);
-            finalboss.Draw(boss);
+            bossAI(BOSS[0]);
+            BOSS[0].Draw(boss);
         }
         //checks bosses arrows
         for(var i = 0; i < arrows.length; i++){
-            if(!arrows[i].enem && checkBArrow(arrows[i], finalboss)){
+            if(!arrows[i].enem && checkBArrow(arrows[i], BOSS[0])){
                 arrows.splice(i, 1);
             }
         }
         
     }
     
-    //spawns speed power up after first level
+    //spawns speed power up after first level and boss level
     if(enemies == 0 && p == 1 && !gameover && d){
         pUp.push(arrowSpeed());
         counter = 0;
         level++; 
         d = false;
     }
-    
+
+    //spawns heart power up on second level and infinite rounds
     else if(enemies == 0 && p == 2 && !gameover && d){
         pUp.push(heart());
         counter = 0;
@@ -1188,6 +1180,18 @@ function update(){
         ctx.fillStyle = "#000";
         ctx.font = RETURN_FONT;
         ctx.fillText(RETURN_TEXT, RETURN_TEXT_X, RETURN_TEXT_Y);
+    }
+    
+    if(level == 3 && warning == true){
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, stage.height - 50, stage.width, 50);
+        ctx.fillStyle = "#000";
+        ctx.font = START_FONT;
+        ctx.fillText("BOSS INCOMING...", 200, stage.height - 15);
+        if(counter == 40){
+            warning = false;
+        }
+        
     }
       
     
