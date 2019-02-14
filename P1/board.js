@@ -32,7 +32,6 @@ let STAGE_FONT = "bold 50px sans-serif",
 
 //SRC for my images 
 let my_SRC = "images/me.png";
-let bush_SRC = "images/bush.png";
 let arrow_SRC = "images/arrow.png";
 let downA_SRC = "images/arrowdown.png";
 let rightA_SRC = "images/arrowright.png";
@@ -208,11 +207,6 @@ var myImage = new Image();
 myImage.ready = false;
 myImage.onload = setAssetReady;
 myImage.src = my_SRC;
-
-var bushImage = new Image();
-bushImage.ready = false;
-bushImage.onload = setAssetReady;
-bushImage.src = bush_SRC;
 
 var arrowImage = new Image();
 arrowImage.ready = false;
