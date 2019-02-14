@@ -940,9 +940,10 @@ function update(){
         ctx.font = START_FONT;
         ctx.fillText(START_TEXT, START_TEXT_X, START_TEXT_Y);
         ctx.font = RETURN_FONT;
-        ctx.fillText("W-up A-left S-down D-right", 240, 600);
-        ctx.fillText("SPACE(HOLD)-shoot", 265, 650);
-        ctx.fillText("*Please be full screen to see the entire game", 180, 680);
+        ctx.fillText("W-up A-left S-down D-right (Hold Each Key To Sprint)", 155, 600);
+        ctx.fillText("SPACE(HOLD)-shoot", 265, 630);
+        ctx.fillText("Enemies have three lives or hits", 225, 655);
+        ctx.fillText("*Please be full screen to see the entire game", 175, 680);
     }
     
     //creates enemies based on level and level delay
