@@ -946,7 +946,7 @@ function update(){
         ctx.font = START_FONT;
         ctx.fillText(START_TEXT, START_TEXT_X, START_TEXT_Y);
         ctx.font = RETURN_FONT;
-        ctx.fillText("W-up A-right S-down D-right", 240, 600);
+        ctx.fillText("W-up A-left S-down D-right", 240, 600);
         ctx.fillText("SPACE(HOLD)-shoot", 265, 650);
 	ctx.fillText("*Please be full screen to see the entire game", 180, 680);
     }
